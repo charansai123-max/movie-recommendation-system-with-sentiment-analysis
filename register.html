@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Shared Styles with Login */
+        :root {
+            --bg-base: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --accent: #3b82f6;
+            --success: #10b981;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            background-color: var(--bg-base);
+            background-image: radial-gradient(circle at top left, #1e1b4b, #0f172a 60%);
+            color: var(--text-main);
+        }
+
+        .auth-box { 
+            background: var(--bg-card); 
+            padding: 40px; 
+            border-radius: 16px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
+            width: 320px; 
+        }
+
+        .auth-box h2 { text-align: center; margin-top: 0; font-weight: 700; margin-bottom: 25px; }
+
+        input { 
+            width: 100%; padding: 12px 15px; margin: 10px 0 20px 0; 
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 8px; box-sizing: border-box; color: white; font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none; border-color: var(--success);
+            background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Green Button for Registration */
+        button { 
+            width: 100%; padding: 12px; 
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white; border: none; border-radius: 8px; cursor: pointer; 
+            font-weight: 600; font-size: 1rem; transition: transform 0.2s, opacity 0.3s; 
+        }
+        button:hover { opacity: 0.9; transform: scale(1.02); }
+        
+        .link { text-align: center; margin-top: 20px; font-size: 0.9em; color: #94a3b8; }
+        .link a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="auth-box">
+        <h2>Create Account</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Choose a Username" required>
+            <input type="password" name="password" placeholder="Choose a Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="link">
+            Already have an account? <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </div>
+</body>
+</html>
